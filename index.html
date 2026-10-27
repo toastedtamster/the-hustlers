@@ -1294,6 +1294,50 @@ body.prototype-fullscreen #prototype .proto-body{display:block}
 #showing-agenda .showing-steps h3,#change-log .change-goal h3{font-family:var(--heading);font-size:1.04rem;font-weight:700;line-height:1.7}
 #showing-agenda .section-intro,#showing-agenda .showing-steps p,#change-log .change-goal p,#change-log table,#change-log td{font-family:var(--body);font-size:1rem;font-weight:400;line-height:1.7}
 #change-log th,#change-log .change-status{font-family:var(--heading);font-weight:900}
+
+/* Agenda: four overview cards above one full-width demo panel. */
+.slide-panel[data-slide-id="showing-agenda"]{padding-bottom:84px}
+#showing-agenda .section-inner{padding:22px 26px}
+#showing-agenda .section-intro{margin-top:8px;margin-bottom:18px}
+#showing-agenda .showing-steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch}
+#showing-agenda .showing-steps>li{display:block;position:relative;padding:18px;background:linear-gradient(180deg,#fffdfb,var(--cream));border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 22px rgba(33,24,32,.05)}
+#showing-agenda .showing-steps>li::before{position:absolute;top:18px;left:18px}
+#showing-agenda .showing-steps>li h3{padding-left:48px;min-height:38px;margin-bottom:14px;line-height:1.35}
+#showing-agenda .showing-steps p{line-height:1.45}
+#showing-agenda .showing-steps>li:nth-child(5){grid-column:1 / -1;padding:20px 22px;background:linear-gradient(135deg,var(--burgundy),#49162e);border-color:var(--burgundy);color:var(--cream)}
+#showing-agenda .showing-steps>li:nth-child(5)::before{top:20px;left:22px;background:var(--gold);color:var(--burgundy)}
+#showing-agenda .showing-steps>li:nth-child(5)>div{display:grid;grid-template-columns:minmax(220px,1fr) minmax(0,1.4fr);gap:14px 24px;align-items:center}
+#showing-agenda .showing-steps>li:nth-child(5) h3{grid-column:1;grid-row:1;margin:0;color:var(--cream);display:flex;align-items:center}
+#showing-agenda .showing-steps>li:nth-child(5)>div>p{grid-column:2;grid-row:1;text-align:right;color:var(--cream)}
+#showing-agenda .agenda-screens{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));gap:12px}
+#showing-agenda .agenda-screens p{padding:14px;border:1px solid rgba(242,167,197,.3);border-radius:14px;background:rgba(242,167,197,.12);color:var(--cream)}
+#showing-agenda .agenda-screens strong{display:block;margin-bottom:8px;color:var(--gold);font-family:var(--heading)}
+@media(max-width:1000px){
+  #showing-agenda .showing-steps{gap:12px}
+  #showing-agenda .showing-steps>li{padding:14px}
+  #showing-agenda .showing-steps>li::before{top:14px;left:14px}
+  #showing-agenda .agenda-screens{gap:8px}
+  #showing-agenda .agenda-screens p{padding:10px}
+}
+@media(max-width:800px){
+  #showing-agenda .showing-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #showing-agenda .showing-steps>li:nth-child(5)>div{grid-template-columns:1fr}
+  #showing-agenda .showing-steps>li:nth-child(5)>div>p{grid-column:1;grid-row:3;text-align:left}
+  #showing-agenda .agenda-screens{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #showing-agenda .agenda-prototype-screen{grid-column:1 / -1}
+}
+@media(max-width:520px){
+  #showing-agenda .section-inner{padding:20px}
+  #showing-agenda .showing-steps{grid-template-columns:1fr}
+  #showing-agenda .showing-steps>li:nth-child(5){padding:18px}
+  #showing-agenda .showing-steps>li:nth-child(5)::before{top:18px;left:18px}
+}
+
+/* Keep agenda typography tied to the original website theme. */
+#showing-agenda h2,#showing-agenda .showing-steps h3{font-family:var(--heading);font-weight:700;font-style:normal}
+#showing-agenda .section-kicker,#showing-agenda .showing-steps>li::before{font-family:var(--heading);font-weight:900;font-style:normal}
+#showing-agenda .section-intro,#showing-agenda .showing-steps p{font-family:var(--body);font-weight:400;font-style:normal}
+#showing-agenda .agenda-screens strong{font-family:var(--heading);font-weight:700;font-style:normal}
 </style>
 </head>
 <body>
@@ -2036,7 +2080,7 @@ body.prototype-fullscreen #prototype .proto-body{display:block}
     <li><div><h3>Set the table</h3><p>First, we’ll demonstrate the team’s prototype. Then, each team member will present the booking platform they researched. While one person presents, the others will capture your feedback.</p></div></li>
     <li><div><h3>Goal of the meeting</h3><p>Show you the prototype and hear your feedback on what we can improve.</p></div></li>
     <li><div><h3>The project goal</h3><p>Introduce available booking platforms and help you set up an account with your preferred platform.</p></div></li>
-    <li><div><h3>What we’ll demo</h3><p>Walk through hairstyle selection, customization, date and time, location, customer information, and confirmation. Then present four booking platforms, pausing for your reactions after each demo and discussing which platform you prefer.</p></div></li>
+    <li><div><h3>What we’ll demo</h3><div class="agenda-screens"><p class="agenda-prototype-screen"><strong>Screen 1 — Prototype walkthrough:</strong> Hairstyle selection, customization, date and time, location, customer information, and confirmation.</p><p><strong>Screen 2 — Square:</strong> Booking platform presentation.</p><p><strong>Screen 3 — Booksy:</strong> Booking platform presentation.</p><p><strong>Screen 4 — Fresha:</strong> Booking platform presentation.</p><p><strong>Screen 5 — GlossGenius:</strong> Booking platform presentation.</p></div><p>We’ll pause for your reactions after each demo, then discuss which platform you prefer.</p></div></li>
   </ol>
 </div></section></div>
 <div class="slide-panel" data-slide-index="10" data-slide-id="change-log" aria-hidden="true">
