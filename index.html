@@ -1338,6 +1338,59 @@ body.prototype-fullscreen #prototype .proto-body{display:block}
 #showing-agenda .section-kicker,#showing-agenda .showing-steps>li::before{font-family:var(--heading);font-weight:900;font-style:normal}
 #showing-agenda .section-intro,#showing-agenda .showing-steps p{font-family:var(--body);font-weight:400;font-style:normal}
 #showing-agenda .agenda-screens strong{font-family:var(--heading);font-weight:700;font-style:normal}
+
+/* Weekly report archive: week tabs, section rail, and fitted report cards. */
+.menu-panel{max-height:calc(100dvh - 96px);overflow-y:auto}
+.slide-panel[data-slide-id="weekly-status-reports"]{overflow:hidden}
+#weekly-status-reports .section-inner{height:100%;padding:24px 30px;display:flex;flex-direction:column}
+#weekly-status-reports h2{font-size:clamp(1.7rem,3vw,2.6rem);flex:none}
+#weekly-status-reports .weekly-report-list{display:none!important}
+#weekly-status-reports .report-archive{display:flex;flex-direction:column;flex:1;min-height:0;margin-top:18px}
+#weekly-status-reports .report-week-tabs{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line);flex:none}
+#weekly-status-reports button,#weekly-status-reports select{font-family:var(--heading);cursor:pointer}
+#weekly-status-reports .report-week-tab{display:flex;align-items:center;gap:12px;padding:10px 20px 10px 12px;border:1px solid var(--line);border-radius:16px 16px 6px 6px;background:#fbf4ee;color:var(--muted);text-align:left}
+#weekly-status-reports .report-week-tab[aria-selected="true"]{border-color:var(--gold);background:linear-gradient(135deg,#a72160,var(--burgundy));color:#fff8f2;box-shadow:0 5px 15px rgba(111,23,50,.14)}
+#weekly-status-reports .report-week-number{width:40px;height:40px;border-radius:50%;background:rgba(206,47,120,.08);display:grid;place-items:center;font-size:1.15rem;font-weight:900}
+#weekly-status-reports .report-week-tab[aria-selected="true"] .report-week-number{background:#fff8f2;color:var(--burgundy)}
+#weekly-status-reports .report-week-name{display:block;font-size:1rem;font-weight:900;line-height:1.3}
+#weekly-status-reports .report-week-author{display:block;font-family:var(--body);font-size:.8rem;line-height:1.4;margin-top:3px}
+#weekly-status-reports .report-workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;flex:1;min-height:0;padding-top:16px}
+#weekly-status-reports .report-section-rail{display:grid;grid-auto-rows:minmax(0,1fr);gap:6px;min-height:0}
+#weekly-status-reports .report-section-button{min-width:0;padding:6px 12px;border:1px solid transparent;border-radius:12px;text-align:left;background:transparent;color:var(--muted);font-size:.83rem;font-weight:900;line-height:1.25}
+#weekly-status-reports .report-section-button[aria-pressed="true"]{background:#f7e5ed;border-color:rgba(206,47,120,.2);color:var(--burgundy);box-shadow:inset 3px 0 var(--magenta)}
+#weekly-status-reports .report-reading-pane{display:flex;flex-direction:column;gap:12px;min-width:0;min-height:0}
+#weekly-status-reports .report-pane-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none}
+#weekly-status-reports .report-pane-heading h3{margin:0;color:var(--burgundy);font-family:var(--heading);font-size:1.05rem;line-height:1.3}
+#weekly-status-reports .report-health{padding:4px 11px;border:1px solid #a72160;border-radius:999px;background:#a72160;color:#fff;font-family:var(--heading);font-size:.8rem;font-weight:900;white-space:nowrap}
+#weekly-status-reports .report-mobile-section{display:none}
+#weekly-status-reports .report-viewport{flex:1;min-height:0;overflow:hidden}
+#weekly-status-reports .report-page-content{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#weekly-status-reports .report-page-content > div,#weekly-status-reports .report-page-content > li{min-width:0;margin:0;padding:16px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#fffdfb,#fbf4ee)}
+#weekly-status-reports .report-page-content > .report-wide{grid-column:1/-1}
+#weekly-status-reports .report-page-content > li{display:flex;align-items:baseline;gap:10px;padding:10px 14px}
+#weekly-status-reports dt{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 10px;font-family:var(--heading);font-size:.95rem;font-weight:900;color:var(--burgundy)}
+#weekly-status-reports dd{margin:7px 0 0;line-height:1.7;overflow-wrap:anywhere}
+#weekly-status-reports .report-owner{padding:2px 9px;border-radius:999px;background:rgba(206,47,120,.08);font-size:.8rem;font-weight:800}
+#weekly-status-reports .principle-mark{color:var(--burgundy);font-size:1.2rem}
+#weekly-status-reports .report-pagination{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:none;padding-top:10px;border-top:1px solid var(--line)}
+#weekly-status-reports .report-pagination button{min-height:38px;padding:6px 15px;border:1px solid var(--line);border-radius:999px;background:#fbf1f4;color:var(--burgundy);font-size:.9rem;font-weight:900}
+#weekly-status-reports .report-pagination button:disabled{opacity:.4;cursor:default}
+#weekly-status-reports .report-pagination span{font-family:var(--heading);font-size:.85rem;font-weight:800;color:var(--muted)}
+#weekly-status-reports button:focus-visible,#weekly-status-reports select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media(max-width:760px){
+ #weekly-status-reports .section-inner{padding:18px}
+ #weekly-status-reports .report-archive{margin-top:12px}
+ #weekly-status-reports .report-week-tab{padding:8px 14px 8px 10px}
+ #weekly-status-reports .report-week-tabs{padding-bottom:10px}
+ #weekly-status-reports .report-workspace{display:flex;flex-direction:column;gap:10px;padding-top:12px}
+ #weekly-status-reports .report-section-rail{display:none}
+ #weekly-status-reports .report-mobile-section{display:block;width:100%;min-height:42px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fbf1f4;color:var(--burgundy);font-size:.95rem;font-weight:900}
+ #weekly-status-reports .report-reading-pane{flex:1}
+ #weekly-status-reports .report-page-content{grid-template-columns:1fr;gap:10px}
+ #weekly-status-reports .report-page-content > div{padding:12px}
+ #weekly-status-reports .report-pagination button{padding:6px 12px}
+}
+
 </style>
 </head>
 <body>
@@ -1367,6 +1420,7 @@ body.prototype-fullscreen #prototype .proto-body{display:block}
       <a href="#prototype">Prototype</a>
       <a href="#showing-agenda">Demo Agenda</a>
       <a href="#change-log">Change Log</a>
+      <a href="#weekly-status-reports">Weekly Status Reports</a>
     </div>
   </nav>
 </header>
@@ -2098,13 +2152,34 @@ body.prototype-fullscreen #prototype .proto-body{display:block}
     </table>
   </div>
 </div></section></div>
+
+<div class="slide-panel" data-slide-index="11" data-slide-id="weekly-status-reports" aria-hidden="true">
+<section class="section" id="weekly-status-reports"><div class="section-inner">
+  <h2>Weekly Status Reports</h2>
+  <div class="weekly-report-list mt">
+    <!-- Add future report details blocks here, newest week first. -->
+    <details class="weekly-report" open>
+      <summary><span class="report-week">Week 10<span class="report-byline">Report Author: Thelma</span></span><span class="report-health">On track</span></summary>
+      <div class="weekly-report-body">
+<details class="report-topic"><summary>BASIC INFORMATION</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>Reporting Period</dt><dd>Week 10</dd></div><div><dt>Report Author</dt><dd>Thelma</dd></div><div><dt>Project Goal</dt><dd>Our goal is to help Maldora Beauty streamline its booking system, and we&#x27;ll know we&#x27;ve succeeded when its clients are more satisfied with their booking experience - and the solution should also work for other service providers who face the same problem</dd></div></dl></div></details>
+<details class="report-topic"><summary>PROJECT HEALTH</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>Project health</dt><dd>On track</dd></div><div><dt>Executive Summary</dt><dd>Our project is progressing smoothly and is aligned with the course curriculum and timeline established by our professor. We recently focused on developing our prototype, which we presented to our client and were able to get feedback that will help us guide our next steps.</dd></div></dl></div></details>
+<details class="report-topic"><summary>ACCOMPLISHMENTS THIS WEEK</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>Prototype Improvements <span class="report-owner">Owner: Tamie</span></dt><dd>Designed and updated the prototype to include additional features, improving customer experience and accessibility.</dd></div><div><dt>Booking Platform Shortlist <span class="report-owner">Owner: Nontanee</span></dt><dd>Gathered a list of booking platforms that fall into the &quot;build&quot; model which helped teammates do further research and present to the client.</dd></div><div><dt>Fresha Research <span class="report-owner">Owner: Amir</span></dt><dd>Researched a booking platform known as &#x27;Fresha&#x27; and presented to the client, explaining the pros and cons over other booking platforms.</dd></div><div><dt>Client Meeting <span class="report-owner">Owner: Thelma</span></dt><dd>Organized meeting with the client to discuss current project phase; including the prototype and alternative booking platforms.</dd></div></dl></div></details>
+<details class="report-topic"><summary>PLAN FOR NEXT WEEK</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>Third-Party Service Setup <span class="report-owner">Owner: Tamie</span></dt><dd>First build of client's business on a chosen third-party service</dd></div></dl></div></details>
+<details class="report-topic"><summary>CLIENT INTERACTIONS</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>Client Contact This Period</dt><dd>Client was contacted once this week to discuss prototype and alternative platforms.</dd></div></dl></div></details>
+<details class="report-topic"><summary>ISSUES, RISKS &amp; BLOCKERS</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>Risks</dt><dd>None</dd></div><div><dt>Blockers</dt><dd>None</dd></div></dl></div></details>
+<details class="report-topic"><summary>DESIGN PRINCIPLES CHECK</summary><div class="report-topic-body"><ul class="report-principles"><li><span class="principle-mark" role="img" aria-label="Unchecked">☐</span><span>1. Design meaningful systems</span></li><li><span class="principle-mark" role="img" aria-label="Checked">☑</span><span>2. User-first design</span></li><li><span class="principle-mark" role="img" aria-label="Checked">☑</span><span>3. Remember the why</span></li><li><span class="principle-mark" role="img" aria-label="Unchecked">☐</span><span>4. Everything on the screen is intentional</span></li><li><span class="principle-mark" role="img" aria-label="Unchecked">☐</span><span>5. Accessibility as a foundation</span></li><li><span class="principle-mark" role="img" aria-label="Checked">☑</span><span>6. Look, presentation and content</span></li><li><span class="principle-mark" role="img" aria-label="Unchecked">☐</span><span>7. Consistency</span></li><li><span class="principle-mark" role="img" aria-label="Unchecked">☐</span><span>8. Error prevention and recovery</span></li><li><span class="principle-mark" role="img" aria-label="Checked">☑</span><span>9. Creative exploration</span></li></ul></div></details>
+<details class="report-topic"><summary>TEAM REFLECTION</summary><div class="report-topic-body"><dl class="report-fields"><div><dt>What We Learned</dt><dd>This week we learned more about the client&#x27;s preference for available subscription-based booking platforms. We got to understand that one of her top priorities when deciding which platform to go with is price. The client also prioritizes &#x27;ease of use&#x27; as she is not a coder/programmer and might struggle if she uses a &#x27;build&#x27; model instead of a &#x27;buy&#x27; model. We will continue to explore the platforms the client indicated interest in to understand and ensure how well they meet the clients&#x27; requirements.</dd></div></dl></div></details>
+      </div>
+    </details>
+  </div>
+</div></section></div>
 </div></div>
 </main>
 <div class="slide-controls" aria-label="Slide navigation">
   <button class="slide-nav-button" id="slidePrev" type="button">← Previous</button>
   <div class="slide-progress-wrap">
-    <span class="slide-counter" id="slideCounter">01 / 11</span>
-    <div class="slide-dots" id="slideDots"><button class="slide-dot active" type="button" data-go-slide="0" aria-label="Go to Project Artifact Site"></button><button class="slide-dot" type="button" data-go-slide="1" aria-label="Go to Meet the Team"></button><button class="slide-dot" type="button" data-go-slide="2" aria-label="Go to Project Goal & Scope"></button><button class="slide-dot" type="button" data-go-slide="3" aria-label="Go to Team Charter"></button><button class="slide-dot" type="button" data-go-slide="4" aria-label="Go to Client Overview"></button><button class="slide-dot" type="button" data-go-slide="5" aria-label="Go to Client Interview"></button><button class="slide-dot" type="button" data-go-slide="6" aria-label="Go to Personas"></button><button class="slide-dot" type="button" data-go-slide="7" aria-label="Go to Booking Process"></button><button class="slide-dot" type="button" data-go-slide="8" aria-label="Go to Prototype"></button><button class="slide-dot" type="button" data-go-slide="9" aria-label="Go to Demo Agenda"></button><button class="slide-dot" type="button" data-go-slide="10" aria-label="Go to Change Log"></button></div>
+    <span class="slide-counter" id="slideCounter">01 / 12</span>
+    <div class="slide-dots" id="slideDots"><button class="slide-dot active" type="button" data-go-slide="0" aria-label="Go to Project Artifact Site"></button><button class="slide-dot" type="button" data-go-slide="1" aria-label="Go to Meet the Team"></button><button class="slide-dot" type="button" data-go-slide="2" aria-label="Go to Project Goal & Scope"></button><button class="slide-dot" type="button" data-go-slide="3" aria-label="Go to Team Charter"></button><button class="slide-dot" type="button" data-go-slide="4" aria-label="Go to Client Overview"></button><button class="slide-dot" type="button" data-go-slide="5" aria-label="Go to Client Interview"></button><button class="slide-dot" type="button" data-go-slide="6" aria-label="Go to Personas"></button><button class="slide-dot" type="button" data-go-slide="7" aria-label="Go to Booking Process"></button><button class="slide-dot" type="button" data-go-slide="8" aria-label="Go to Prototype"></button><button class="slide-dot" type="button" data-go-slide="9" aria-label="Go to Demo Agenda"></button><button class="slide-dot" type="button" data-go-slide="10" aria-label="Go to Change Log"></button><button class="slide-dot" type="button" data-go-slide="11" aria-label="Go to Weekly Status Reports"></button></div>
   </div>
   <button class="slide-nav-button primary" id="slideNext" type="button">Next →</button>
 </div>
@@ -2522,6 +2597,145 @@ if('IntersectionObserver' in window){
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
   });
+})();
+</script>
+
+<!-- Original Week 10 export verification
+<<<VERIFY>>>
+493bb74.eyJ2IjoxLCJhc3NpZ25tZW50IjoiV2Vla2x5IFN0YXR1cyBSZXBvcnQiLCJwYWdlIjoid2Vla2x5LXN0YXR1cy1yZXBvcnQiLCJsYWJlbCI6IlRlYW0iLCJleHBvcnRlZEF0IjoiMjAyNi0xMC0zMFQwMToxNToyMy4zNzFaIiwiY2hlY2tzdW0iOiJkOTBjMTBjNyIsImRhdGEiOnsidGVhbU5hbWUiOiJUaGUgSHVzdGxlcnMiLCJwZXJpb2QiOiJXZWVrIDEwIiwiaGVhbHRoIjoiT24gdHJhY2sifX0=
+<<<END_VERIFY>>>
+-->
+
+<script>
+(() => {
+  const section=document.getElementById('weekly-status-reports');
+  const panel=section.closest('.slide-panel');
+  const source=section.querySelector('.weekly-report-list');
+  source.setAttribute('aria-hidden','true');
+  const reports=[...source.querySelectorAll('.weekly-report')].map(report=>({
+    week:report.querySelector('.report-week').firstChild.textContent.trim(),
+    author:report.querySelector('.report-byline').textContent,
+    health:report.querySelector('.report-health').textContent,
+    topics:[...report.querySelectorAll('.report-topic')]
+  }));
+  const archive=document.createElement('div');archive.className='report-archive';
+  const tabs=document.createElement('div');tabs.className='report-week-tabs';tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Weekly reports');
+  const workspace=document.createElement('div');workspace.className='report-workspace';workspace.id='weekly-report-workspace';workspace.setAttribute('role','tabpanel');
+  const rail=document.createElement('nav');rail.className='report-section-rail';rail.setAttribute('aria-label','Report sections');
+  const select=document.createElement('select');select.className='report-mobile-section';select.setAttribute('aria-label','Report section');
+  const pane=document.createElement('div');pane.className='report-reading-pane';
+  const heading=document.createElement('div');heading.className='report-pane-heading';
+  const title=document.createElement('h3');title.id='report-topic-title';
+  const health=document.createElement('span');health.className='report-health';heading.append(title,health);
+  const viewport=document.createElement('div');viewport.className='report-viewport';viewport.id='report-content-viewport';viewport.setAttribute('role','region');viewport.setAttribute('aria-labelledby',title.id);
+  const navigation=document.createElement('div');navigation.className='report-pagination';
+  const previous=document.createElement('button');previous.type='button';previous.textContent='← Previous';
+  const next=document.createElement('button');next.type='button';next.textContent='Next →';
+  const status=document.createElement('span');status.setAttribute('aria-live','polite');
+  [previous,next].forEach(button=>button.setAttribute('aria-controls',viewport.id));
+  navigation.append(previous,status,next);pane.append(heading,viewport,navigation);workspace.append(rail,select,pane);archive.append(tabs,workspace);source.after(archive);
+  let activeWeek=0,activeTopic=0,current=0,pages=[];
+  const weekButtons=reports.map((report,index)=>{
+    const button=document.createElement('button');button.type='button';button.className='report-week-tab';button.id='report-week-tab-'+index;
+    button.setAttribute('role','tab');button.setAttribute('aria-controls',workspace.id);
+    const number=document.createElement('span');number.className='report-week-number';number.textContent=report.week.replace(/Week\s*/i,'');number.setAttribute('aria-hidden','true');
+    const label=document.createElement('span');
+    const name=document.createElement('span');name.className='report-week-name';name.textContent=report.week;
+    const author=document.createElement('span');author.className='report-week-author';author.textContent=report.author;
+    label.append(name,author);button.append(number,label);tabs.append(button);
+    button.addEventListener('click',()=>chooseWeek(index));
+    button.addEventListener('keydown',event=>{
+      let target=index;
+      if(event.key==='ArrowRight')target=(index+1)%reports.length;
+      else if(event.key==='ArrowLeft')target=(index-1+reports.length)%reports.length;
+      else if(event.key==='Home')target=0;
+      else if(event.key==='End')target=reports.length-1;
+      else return;
+      event.preventDefault();event.stopPropagation();chooseWeek(target);weekButtons[target].focus();
+    });
+    return button;
+  });
+  function chooseWeek(index){
+    activeWeek=index;activeTopic=0;current=0;
+    weekButtons.forEach((button,i)=>{button.setAttribute('aria-selected',String(i===index));button.tabIndex=i===index?0:-1;});
+    workspace.setAttribute('aria-labelledby',weekButtons[index].id);
+    rail.replaceChildren();select.replaceChildren();
+    reports[index].topics.forEach((topic,i)=>{
+      const label=topic.querySelector('summary').textContent;
+      const button=document.createElement('button');button.type='button';button.className='report-section-button';button.textContent=label;
+      button.addEventListener('click',()=>chooseTopic(i));rail.append(button);select.add(new Option(label,i));
+    });
+    health.textContent=reports[index].health;chooseTopic(0);requestAnimationFrame(fit);
+  }
+  function chooseTopic(index){
+    activeTopic=index;current=0;select.value=String(index);
+    [...rail.children].forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+    title.textContent=reports[activeWeek].topics[index].querySelector('summary').textContent;
+    build();
+  }
+  function cloneItem(original){
+    const item=original.cloneNode(true);
+    const description=item.querySelector('dd');
+    if(description&&description.textContent.length>180)item.classList.add('report-wide');
+    return item;
+  }
+  function show(){
+    viewport.replaceChildren(pages[current]);
+    status.textContent=(current+1)+' / '+pages.length;
+    previous.disabled=current===0;next.disabled=current===pages.length-1;
+  }
+  function build(){
+    if(!panel.classList.contains('active')||viewport.clientHeight<1)return;
+    const topic=reports[activeWeek].topics[activeTopic];
+    const list=topic.querySelector('dl,ul');const tag=list.tagName.toLowerCase();
+    const limit=viewport.clientHeight;
+      pages=[];
+      let page;
+      function fresh(){page=document.createElement(tag);page.className='report-page-content';pages.push(page);viewport.replaceChildren(page);}
+      function fits(){return page.getBoundingClientRect().height<=limit;}
+      fresh();
+      [...list.children].forEach(original=>{
+        let item=cloneItem(original);page.append(item);
+        if(fits())return;
+        item.remove();
+        if(page.children.length)fresh();
+        page.append(item);
+        if(fits())return;
+        // Long paragraphs continue on another content page without dropping words.
+        let description=item.querySelector('dd');
+        if(!description)return;
+        let words=description.textContent.split(/\s+/);
+        while(words.length){
+          let low=1,high=words.length,best=0;
+          while(low<=high){
+            const mid=Math.floor((low+high)/2);
+            description.textContent=words.slice(0,mid).join(' ');
+            if(fits()){best=mid;low=mid+1;}else high=mid-1;
+          }
+          best=Math.max(1,best);
+          description.textContent=words.slice(0,best).join(' ');
+          words=words.slice(best);
+          if(words.length){
+            fresh();item=cloneItem(original);page.append(item);
+            description=item.querySelector('dd');
+          }
+        }
+      });
+
+    current=Math.min(current,pages.length-1);show();
+  }
+  function fit(){
+    if(!panel.classList.contains('active'))return;
+    const bottom=document.querySelector('.slide-controls').getBoundingClientRect().top;
+    section.style.height=Math.max(180,bottom-section.getBoundingClientRect().top-16)+'px';build();
+  }
+  select.addEventListener('change',()=>chooseTopic(Number(select.value)));
+  previous.addEventListener('click',()=>{if(current>0){current--;show();}});
+  next.addEventListener('click',()=>{if(current<pages.length-1){current++;show();}});
+  new MutationObserver(()=>requestAnimationFrame(fit)).observe(panel,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('resize',()=>requestAnimationFrame(fit));
+  if(document.fonts)document.fonts.ready.then(fit);
+  chooseWeek(0);
 })();
 </script>
 
